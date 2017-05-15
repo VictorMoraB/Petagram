@@ -2,6 +2,7 @@ package com.mora.victor.petagram;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
@@ -26,6 +27,15 @@ public class MainActivity extends AppCompatActivity {
 
         //crear una lista de mascotas para usar como ejemplo
         mascotas = crearMascotas();
+
+        //crear un layout manager para el recycler view
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+
+        //crear un adaptador con los contactos
+        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas);
+        rvMascotas.setLayoutManager(llm);
+        rvMascotas.setAdapter(adaptador);
 
     }
 

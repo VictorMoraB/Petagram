@@ -1,6 +1,7 @@
 package com.mora.victor.petagram;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -17,13 +18,26 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
 
     private ArrayList<Mascota> mascotas;
 
+    public MascotaAdaptador(ArrayList<Mascota> listaMascotas){
+        mascotas = listaMascotas;
+    }
+
     @Override
     public MascotaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+        View v =
+                LayoutInflater.from(parent.getContext()).inflate(
+                        R.layout.cardview_mascota, parent, false);
+
+        return new MascotaViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(MascotaViewHolder holder, int position) {
+        Mascota mascota = mascotas.get(position);
+        holder.nombreMascota.setText(mascota.getName());
+        int likes = mascota.getLikesCount();
+        holder.likesCount.setText(Integer.toString(likes));
+        holder.petImage.setImageResource(mascota.getImage());
 
     }
 

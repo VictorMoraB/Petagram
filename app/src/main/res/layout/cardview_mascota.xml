@@ -8,6 +8,7 @@
     android:layout_height="wrap_content"
     android:paddingBottom="@dimen/cvMascota_bottom_pad"
     card_view:cardCornerRadius="@dimen/card_corner_radius"
+
     >
 
     <LinearLayout

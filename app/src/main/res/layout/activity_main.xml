@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.mora.victor.petagram.MainActivity"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/cvMascota_bottom_pad">
 
     <!--add custom action bar-->
     <include
