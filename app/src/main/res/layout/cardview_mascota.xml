@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/cvMascota"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/cvMascota_bottom_pad"
+    card_view:cardCornerRadius="@dimen/card_corner_radius"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--Pet image-->
+        <ImageView
+            android:id="@+id/petImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/elephant"
+            android:padding="@dimen/imagen_mascota_padding"/>
+
+        <!--Un linear layout para acomodar horizontalmente el icono de gustar, el nombre
+        de la mascota y el contador de likes-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/cvDetailsPadding"
+            android:background="@color/colorPrimary">
+
+            <!--Icono para dar like y nombre-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:padding="@dimen/cvDetailsPadding">
+
+                <!-- Boton imagen para darle like-->
+                <ImageView
+                    android:id="@+id/icGustar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/dog_bone_50_give_like"
+                    android:padding="@dimen/ic_padding"/>
+                <!--Nombre de la mascota-->
+                <TextView
+                    android:id="@+id/tvNombreMascota"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/NombreMascota"
+                    android:textSize="@dimen/petName_textSize"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+
+            <!--Cuenta de likes acumulada y icono-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:padding="@dimen/cvDetailsPadding">
+                <!-- Contador de likes acumulado para esta mascota -->
+                <TextView
+                    android:id="@+id/tvLikesCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/LikesCount"
+                    android:textSize="@dimen/petName_textSize"
+                    android:textStyle="italic" />
+                <!--Icono de la cuenta de likes-->
+                <ImageView
+                    android:id="@+id/icCuentaLikes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/ic_padding"
+                    android:src="@drawable/dog_bone_48_likes_count" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

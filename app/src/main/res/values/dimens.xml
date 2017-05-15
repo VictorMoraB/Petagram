@@ -2,4 +2,10 @@
 <resources>
 
     <dimen name="appbar_elevation">4dp</dimen>
+    <dimen name="cvMascota_bottom_pad">5dp</dimen>
+    <dimen name="card_corner_radius">4dp</dimen>
+    <dimen name="petName_textSize">16sp</dimen>
+    <dimen name="cvDetailsPadding">4dp</dimen>
+    <dimen name="ic_padding">3dp</dimen>
+    <dimen name="imagen_mascota_padding">4dp</dimen>
 </resources>
