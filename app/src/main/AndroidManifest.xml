@@ -16,7 +16,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".favoritesActivity"></activity>
+        <activity android:name=".favoritesActivity"
+            android:parentActivityName=".MainActivity"
+            >
+            <!--soporte para versiones anteriores a 4.0-->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity">
+
+            </meta-data>
+        </activity>
     </application>
 
 </manifest>

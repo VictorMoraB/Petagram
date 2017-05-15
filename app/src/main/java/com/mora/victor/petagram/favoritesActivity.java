@@ -25,6 +25,7 @@ public class favoritesActivity extends AppCompatActivity implements View.OnClick
         myActionbar = (Toolbar) findViewById(R.id.miActionBarFavorites);
         setSupportActionBar(myActionbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //remover la estrella usada para ir a favoritos
         ImageView estrella = (ImageView)myActionbar.findViewById(R.id.ic_star);
