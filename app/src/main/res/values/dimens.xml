@@ -8,4 +8,5 @@
     <dimen name="cvDetailsPadding">4dp</dimen>
     <dimen name="ic_padding">3dp</dimen>
     <dimen name="imagen_mascota_padding">4dp</dimen>
+    <dimen name="textSize_titulo">22sp</dimen>
 </resources>

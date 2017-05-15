@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         myActionbar = (Toolbar) findViewById(R.id.miActionBar);
         setSupportActionBar(myActionbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         //obtener una referencia al rv de las mascotas
         rvMascotas = (RecyclerView)findViewById(R.id.rvMascotas);
