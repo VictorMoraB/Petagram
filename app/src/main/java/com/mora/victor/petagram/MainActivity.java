@@ -33,12 +33,15 @@ public class MainActivity extends AppCompatActivity {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
 
         //crear un adaptador con los contactos
-        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas);
+        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas, this);
         rvMascotas.setLayoutManager(llm);
         rvMascotas.setAdapter(adaptador);
 
     }
 
+    public void UpdateAdapter(){
+        this.rvMascotas.getAdapter().notifyDataSetChanged();
+    }
     private ArrayList<Mascota> crearMascotas(){
         ArrayList<Mascota> mascotas = new ArrayList<Mascota>();
 

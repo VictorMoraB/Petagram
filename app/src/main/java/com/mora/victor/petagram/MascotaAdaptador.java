@@ -1,11 +1,13 @@
 package com.mora.victor.petagram;
 
+import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -17,9 +19,11 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
 {
 
     private ArrayList<Mascota> mascotas;
+    private Activity actividad;
 
-    public MascotaAdaptador(ArrayList<Mascota> listaMascotas){
+    public MascotaAdaptador(ArrayList<Mascota> listaMascotas, Activity miActivity){
         mascotas = listaMascotas;
+        actividad = miActivity;
     }
 
     @Override
@@ -32,12 +36,27 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
     }
 
     @Override
-    public void onBindViewHolder(MascotaViewHolder holder, int position) {
-        Mascota mascota = mascotas.get(position);
+    public void onBindViewHolder(MascotaViewHolder holder, final int position) {
+        final Mascota mascota = mascotas.get(position);
         holder.nombreMascota.setText(mascota.getName());
         int likes = mascota.getLikesCount();
         holder.likesCount.setText(Integer.toString(likes));
         holder.petImage.setImageResource(mascota.getImage());
+
+        holder.huesoLike.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                //incrementar los likes en 1
+                mascota.setLikesCount(mascota.getLikesCount()+1);
+                //mostrar un mensaje de notificacion al usuario
+                Toast.makeText(actividad, "Diste like a " + mascota.getName() + "!",
+                        Toast.LENGTH_SHORT).show();
+                notifyItemChanged(position);
+
+            }
+        });
+
 
     }
 
@@ -52,6 +71,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         private ImageView petImage;
         private TextView nombreMascota;
         private TextView likesCount;
+        private ImageView huesoLike;
 
         public MascotaViewHolder(View itemView) {
             super(itemView);
@@ -61,6 +81,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
             petImage = (ImageView)itemView.findViewById(R.id.petImage);
             nombreMascota =(TextView)itemView.findViewById(R.id.tvNombreMascota);
             likesCount = (TextView)itemView.findViewById(R.id.tvLikesCount);
+            huesoLike = (ImageView)itemView.findViewById(R.id.icGustar);
 
         }
     }
