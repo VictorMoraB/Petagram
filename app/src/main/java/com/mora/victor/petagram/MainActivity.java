@@ -1,17 +1,21 @@
 package com.mora.victor.petagram;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Toolbar myActionbar;
     private RecyclerView rvMascotas;
+    private ImageView icEstrella;
     private ArrayList<Mascota> mascotas;
 
     @Override
@@ -28,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
         //crear una lista de mascotas para usar como ejemplo
         mascotas = crearMascotas();
 
+        //obtener una referencia al icono de navegar a favoritos y configurar el event listener
+        icEstrella = (ImageView)findViewById(R.id.ic_star);
+        icEstrella.setOnClickListener(this);
+
         //crear un layout manager para el recycler view
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
@@ -39,9 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void UpdateAdapter(){
-        this.rvMascotas.getAdapter().notifyDataSetChanged();
-    }
+
     private ArrayList<Mascota> crearMascotas(){
         ArrayList<Mascota> mascotas = new ArrayList<Mascota>();
 
@@ -73,7 +79,27 @@ public class MainActivity extends AppCompatActivity {
         mascotas.add(conejo);
 
         Mascota python = new Mascota("Monty Python", R.drawable.snake, 798);
+        mascotas.add(python);
 
         return mascotas;
+    }
+
+    @Override
+    public void onClick(View v) {
+        int viewId = v.getId();
+
+        switch (viewId){
+            case R.id.ic_star:
+                IrAFavoritos();
+                break;
+        }
+    }
+
+    public void IrAFavoritos(){
+
+        Intent intentFavoritos = new Intent(this, favoritesActivity.class);
+        startActivity(intentFavoritos);
+
+
     }
 }

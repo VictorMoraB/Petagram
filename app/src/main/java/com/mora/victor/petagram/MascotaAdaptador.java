@@ -43,6 +43,9 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         holder.likesCount.setText(Integer.toString(likes));
         holder.petImage.setImageResource(mascota.getImage());
 
+
+
+        //evento on click para dar like
         holder.huesoLike.setOnClickListener(new View.OnClickListener(){
 
             @Override
