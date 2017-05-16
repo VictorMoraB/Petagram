@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -49,6 +51,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rvMascotas.setLayoutManager(llm);
         rvMascotas.setAdapter(adaptador);
 
+
+
+
     }
 
     //configurar el menu de la barra de acciones y los efectos de la seleccion del touch
@@ -74,6 +79,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
+    //crear elementos de contexto
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        //was this deleted???
+        //MenuInflater inflater = new MenuInflater(this);
+        getMenuInflater().inflate(R.menu.menu_contexto, menu);
+    }
 
     private void accionContactar(){
 

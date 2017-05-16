@@ -9,4 +9,8 @@
     <!-- Textos de los menus de la barra de acción-->
     <string name="titulo_menu_acerca">Acerca..</string>
     <string name="titulo_menu_contacto">Contactar</string>
+
+    <!-- Textos de los menus contextuales -->
+    <string name="mEditar_titulo">Editar</string>
+    <string name="mEliminar_titulo">Eliminar</string>
 </resources>
