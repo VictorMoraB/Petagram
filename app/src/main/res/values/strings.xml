@@ -5,4 +5,8 @@
     <string name="NombreMascota">Pulgas</string>
     <string name="LikesCount">4</string>
     <string name="TituloDefectoActionBar">Petagram</string>
+
+    <!-- Textos de los menus de la barra de acción-->
+    <string name="titulo_menu_acerca">Acerca..</string>
+    <string name="titulo_menu_contacto">Contactar</string>
 </resources>

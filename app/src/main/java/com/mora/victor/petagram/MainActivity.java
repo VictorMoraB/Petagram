@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         myActionbar = (Toolbar) findViewById(R.id.miActionBar);
         setSupportActionBar(myActionbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
 
         //obtener una referencia al rv de las mascotas
         rvMascotas = (RecyclerView)findViewById(R.id.rvMascotas);
@@ -48,6 +51,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    //configurar el menu de la barra de acciones y los efectos de la seleccion del touch
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //crear nuestro propio menu inflando el xml de menu definido
+        getMenuInflater().inflate(R.menu.menu_opciones, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.mAcerca:
+                accionAcerca();
+                break;
+            case R.id.mContacto:
+                accionContactar();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    private void accionContactar(){
+
+    }
+
+    private void accionAcerca(){
+
+    }
 
     private ArrayList<Mascota> crearMascotas(){
         ArrayList<Mascota> mascotas = new ArrayList<Mascota>();
