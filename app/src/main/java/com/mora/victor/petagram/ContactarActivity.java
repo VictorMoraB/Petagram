@@ -48,7 +48,7 @@ public class ContactarActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void EnviarEmail() {
-        String[] recipients = { "thor06m@gmail.com" };
+        String[] recipients = { "" };
         SendEmailAsyncTask email = new SendEmailAsyncTask();
         email.activity = this;
         email.m = new Mail("", "");
