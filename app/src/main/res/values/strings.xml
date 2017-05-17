@@ -9,6 +9,7 @@
     <!--Titulos de la barra de acción en las diferentes actividades-->
     <string name="titulo_actionBar_bio">Conozca a su desarrollador</string>
     <string name="titulo_actionBar_fav">Favoritas</string>
+    <string name="titulo_actionBar_contacto">Email de contacto</string>
 
     <!-- Textos de los menus de la barra de acción-->
     <string name="titulo_menu_acerca">Acerca..</string>

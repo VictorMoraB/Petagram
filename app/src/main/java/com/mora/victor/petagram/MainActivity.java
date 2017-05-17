@@ -87,6 +87,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void accionContactar(){
 
+        Intent intent = new Intent(this, ContactarActivity.class);
+        startActivity(intent);
     }
 
     private void accionAcerca(){
