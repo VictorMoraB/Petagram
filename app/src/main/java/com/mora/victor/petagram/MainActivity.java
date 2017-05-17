@@ -52,8 +52,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rvMascotas.setAdapter(adaptador);
 
 
-
-
     }
 
     //configurar el menu de la barra de acciones y los efectos de la seleccion del touch
@@ -84,8 +82,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
 
-        //was this deleted???
-        //MenuInflater inflater = new MenuInflater(this);
         getMenuInflater().inflate(R.menu.menu_contexto, menu);
     }
 
@@ -94,7 +90,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void accionAcerca(){
-
+        //crear un intent para ir a la nueva actividad
+        Intent intent = new Intent(this, bio_desarrolador.class);
+        startActivity(intent);
     }
 
     private ArrayList<Mascota> crearMascotas(){

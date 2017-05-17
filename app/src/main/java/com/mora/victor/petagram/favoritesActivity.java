@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -16,6 +17,7 @@ public class favoritesActivity extends AppCompatActivity implements View.OnClick
     private Toolbar myActionbar;
     private RecyclerView rvMascotas;
     private ArrayList<Mascota> mascotas;
+    private TextView tituloActionBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,9 @@ public class favoritesActivity extends AppCompatActivity implements View.OnClick
         setSupportActionBar(myActionbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //Cambiar el mensaje del action bar del por defecto al de esta actividad
+        tituloActionBar = (TextView)findViewById(R.id.tituloActionBar);
+        tituloActionBar.setText(getString(R.string.titulo_actionBar_fav));
 
         //remover la estrella usada para ir a favoritos
         ImageView estrella = (ImageView)myActionbar.findViewById(R.id.ic_star);

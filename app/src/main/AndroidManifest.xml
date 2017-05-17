@@ -16,15 +16,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".favoritesActivity"
-            android:parentActivityName=".MainActivity"
-            >
-            <!--soporte para versiones anteriores a 4.0-->
+        <activity
+            android:name=".favoritesActivity"
+            android:parentActivityName=".MainActivity">
+
+            <!-- soporte para versiones anteriores a 4.0 -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity">
+                android:value=".MainActivity"></meta-data>
+        </activity>
+        <activity android:name=".bio_desarrolador"
+            android:parentActivityName=".MainActivity">
 
-            </meta-data>
+            <!-- soporte para versiones anteriores a 4.0 -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"></meta-data>
+
         </activity>
     </application>
 

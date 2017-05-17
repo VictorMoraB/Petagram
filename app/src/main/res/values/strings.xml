@@ -6,11 +6,25 @@
     <string name="LikesCount">4</string>
     <string name="TituloDefectoActionBar">Petagram</string>
 
+    <!--Titulos de la barra de acción en las diferentes actividades-->
+    <string name="titulo_actionBar_bio">Conozca a su desarrollador</string>
+    <string name="titulo_actionBar_fav">Favoritas</string>
+
     <!-- Textos de los menus de la barra de acción-->
     <string name="titulo_menu_acerca">Acerca..</string>
     <string name="titulo_menu_contacto">Contactar</string>
 
+
     <!-- Textos de los menus contextuales -->
     <string name="mEditar_titulo">Editar</string>
     <string name="mEliminar_titulo">Eliminar</string>
+
+    <!--Textos Bio Activity-->
+    <string name="nombre_desarrollador">Rocket Science DevTeam</string>
+    <string name="bio_mision">Nuestra especialidad es el desarrollo de aplicaiones modernas,
+        eficientes que ofreceran una experiecia de usuario optima en cualquier dispositivo.
+        Contáctanos para descubir más acerca de nosotros!
+    </string>
+    <string name="contacto_email_bio">Contacto por email</string>
+    <string name="contacto_tele_bio">Contacto por telefono</string>
 </resources>

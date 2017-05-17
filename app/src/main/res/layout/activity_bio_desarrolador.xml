@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mora.victor.petagram.bio_desarrolador">
+
+    <!--add custom action bar-->
+    <include
+        android:id="@+id/miActionBarBio"
+        layout="@layout/actionbar">
+    </include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/miActionBarBio"
+        android:padding="@dimen/padding_dev_bio"
+        >
+
+        <RelativeLayout
+            android:id="@+id/rocketLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circle_drawable">
+
+            <ImageView
+                android:id="@+id/ivDevBioImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0.75"
+                android:src="@drawable/spaceships_004" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvNombreDev"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre_desarrollador"
+            android:textSize="@dimen/textSize_titulo"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:fontFamily="serif-monospace"/>
+        <TextView
+            android:id="@+id/tvMision"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bio_mision"
+            android:fontFamily="serif-monospace"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/ivContactoEmail"
+                android:layout_width="@dimen/icons_size"
+                android:layout_height="@dimen/icons_size"
+                android:src="@mipmap/ic_action_mail"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"/>
+            <ImageView
+                android:id="@+id/ivContactoTele"
+                android:layout_width="@dimen/icons_size"
+                android:layout_height="@dimen/icons_size"
+                android:src="@drawable/ic_contact_phone"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>
