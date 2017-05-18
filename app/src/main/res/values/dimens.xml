@@ -13,4 +13,6 @@
 
     <dimen name="circle_bio_size">100dp</dimen>
     <dimen name="icons_size">40dp</dimen>
+
+    <dimen name="padding_contactar">4dp</dimen>
 </resources>

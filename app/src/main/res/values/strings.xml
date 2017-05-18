@@ -28,4 +28,11 @@
     </string>
     <string name="contacto_email_bio">Contacto por email</string>
     <string name="contacto_tele_bio">Contacto por telefono</string>
+
+    <!--Textos de la actividad de enviar correo de contacto-->
+    <string name="btnEnviarMensaje">Enviar mensaje</string>
+    <string name="txtNombreContactar">Ingrese su nombre</string>
+    <string name="txtCorreoContactar">Ingrese su correo</string>
+    <string name="txtAsuntoCorreo">Ingrese el asunto del correo</string>
+    <string name="txtMensajeCorreo">Ingrese su mensaje</string>
 </resources>

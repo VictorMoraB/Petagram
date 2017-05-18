@@ -59,7 +59,7 @@
                 android:id="@+id/ivContactoEmail"
                 android:layout_width="@dimen/icons_size"
                 android:layout_height="@dimen/icons_size"
-                android:src="@mipmap/ic_action_mail"
+                android:src="@drawable/ic_action_mail"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"/>
             <ImageView

@@ -11,11 +11,97 @@
         android:id="@+id/miActionBarContactar"
         layout="@layout/actionbar">
     </include>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@id/miActionBarContactar"
+    android:orientation="vertical">
+
+    <!--Sección nombre de la persona realizando el contacto-->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintAnimationEnabled="true"
+        android:padding="@dimen/padding_contactar">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/txtNombreContactar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txtNombreContactar"
+            android:lines="1"
+            android:maxLines="1"
+            >
+
+        </android.support.design.widget.TextInputEditText>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <!--Sección correo al cual contactar-->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintAnimationEnabled="true"
+        android:padding="@dimen/padding_contactar"
+        app:errorEnabled="true"
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/txtCorreoContactar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txtCorreoContactar"
+            android:lines="1"
+            android:inputType="textEmailAddress"
+            >
+
+        </android.support.design.widget.TextInputEditText>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <!--Sección para el asunto del correo-->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintAnimationEnabled="true"
+        android:padding="@dimen/padding_contactar">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/txtAsuntoContactar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txtAsuntoCorreo"
+            android:lines="1">
+
+        </android.support.design.widget.TextInputEditText>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <!--Sección para el cuerpo del mensaje-->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintAnimationEnabled="true">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/txtMensajeContactar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txtMensajeCorreo"
+            android:lines="8">
+
+        </android.support.design.widget.TextInputEditText>
+
+    </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/btnSendEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Send"/>
+        android:text="@string/btnEnviarMensaje"/>
+
+</LinearLayout>
+
+
 
 </RelativeLayout>

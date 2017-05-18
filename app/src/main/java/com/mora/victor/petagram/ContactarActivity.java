@@ -1,6 +1,7 @@
 package com.mora.victor.petagram;
 
 import android.os.AsyncTask;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -16,6 +17,10 @@ public class ContactarActivity extends AppCompatActivity implements View.OnClick
 
     private Toolbar myActionbar;
     private TextView tituloActionBar;
+    private TextInputEditText tiNombre;
+    private TextInputEditText tiCorreo;
+    private TextInputEditText tiAsunto;
+    private TextInputEditText tiMensaje;
     private Button btnSendEmail;
 
     @Override
@@ -32,6 +37,11 @@ public class ContactarActivity extends AppCompatActivity implements View.OnClick
         tituloActionBar.setText(getString(R.string.titulo_actionBar_contacto));
         //habiliatar la navegacion de regreso al padre
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        tiNombre = (TextInputEditText)findViewById(R.id.txtNombreContactar);
+        tiCorreo = (TextInputEditText)findViewById(R.id.txtCorreoContactar);
+        tiAsunto = (TextInputEditText)findViewById(R.id.txtAsuntoContactar);
+        tiMensaje = (TextInputEditText)findViewById(R.id.txtMensajeContactar);
 
         btnSendEmail = (Button) findViewById(R.id.btnSendEmail);
         btnSendEmail.setOnClickListener(this);
