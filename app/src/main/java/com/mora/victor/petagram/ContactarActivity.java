@@ -58,14 +58,15 @@ public class ContactarActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void EnviarEmail() {
-        String[] recipients = { "" };
+        String[] recipients = { tiCorreo.getText().toString() };
         SendEmailAsyncTask email = new SendEmailAsyncTask();
         email.activity = this;
-        email.m = new Mail("", "");
-        email.m.set_from("");
-        email.m.setBody("Lalalala body");
+        email.m = new Mail(null);
+        email.m.set_from("no-reply@nodomain.com");
+        email.m.setBody(tiMensaje.getText().toString());
         email.m.set_to(recipients);
-        email.m.set_subject("Lalalal subject");
+        email.m.set_subject(tiNombre.getText().toString() + " - " +
+                tiAsunto.getText().toString());
         email.execute();
 
     }
@@ -84,12 +85,7 @@ public class ContactarActivity extends AppCompatActivity implements View.OnClick
         @Override
         protected Boolean doInBackground(Void... params) {
             try {
-                if (m.send()) {
-                    activity.displayMessage("Sent");
-                } else {
-                    activity.displayMessage("Failed");
-                }
-
+                m.send();
                 return true;
             } catch (AuthenticationFailedException e) {
                 activity.displayMessage(e.getMessage());
@@ -100,6 +96,21 @@ public class ContactarActivity extends AppCompatActivity implements View.OnClick
             } catch (Exception e) {
                 activity.displayMessage(e.getMessage());
                 return false;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Boolean aBoolean) {
+            if(aBoolean){
+                activity.displayMessage("Mensaje enviado!");
+                //Limpiar los campos dado que el mensaje se envio satisfactoriamente
+                tiNombre.setText("");
+                tiCorreo.setText("");
+                tiAsunto.setText("");
+                tiMensaje.setText("");
+
+            }else{
+                activity.displayMessage("Error de envio :(");
             }
         }
     }

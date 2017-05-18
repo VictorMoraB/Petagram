@@ -79,6 +79,12 @@ public class Mail extends javax.mail.Authenticator {
         _pass = pass;
     }
 
+    public Mail(Object ob){
+        this();
+        _user = "devtestsvm@gmail.com";
+        _pass = "lalala123!";
+    }
+
     public boolean send() throws Exception {
         Properties props = _setProperties();
 
