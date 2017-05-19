@@ -3,7 +3,9 @@ package com.mora.victor.petagram;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +17,7 @@ public class bio_desarrolador extends AppCompatActivity implements View.OnClickL
     private TextView tituloActionBar;
     private ImageView iconoEmail;
     private ImageView iconoTelefono;
+    private ImageView ivImagenDesarrollador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,9 @@ public class bio_desarrolador extends AppCompatActivity implements View.OnClickL
         tituloActionBar.setText(getString(R.string.titulo_actionBar_bio));
         //habiliatar la navegacion de regreso al padre
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        ivImagenDesarrollador = (ImageView)findViewById(R.id.ivDevBioImage);
+        ivImagenDesarrollador.setOnClickListener(this);
 
         //obtener referencia a los iconos de contacto de email y telefono, configurar event listener
         iconoEmail = (ImageView)findViewById(R.id.ivContactoEmail);
@@ -50,7 +56,36 @@ public class bio_desarrolador extends AppCompatActivity implements View.OnClickL
             case R.id.ivContactoTele:
                 ContactoTelefono();
                 break;
+            case R.id.ivDevBioImage:
+                mostrarMenuPopup(ivImagenDesarrollador);
+                break;
+
         }
+    }
+
+    public void mostrarMenuPopup(View v){
+        PopupMenu popupMenu = new PopupMenu(this, v);
+        popupMenu.getMenuInflater().inflate(R.menu.menu_popup, popupMenu.getMenu());
+        //crear los handlers para la seleccion de las opciones del menu
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+
+                switch(item.getItemId()){
+                    case R.id.mView:
+                        Toast.makeText(getBaseContext(), getResources().getString(R.string.menu_view),
+                                Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.mViewDetail:
+                        Toast.makeText(getBaseContext(), getResources().getString(R.string.menu_detail),
+                                Toast.LENGTH_SHORT).show();
+                        break;
+                }
+
+                return true;
+            }
+        });
+        popupMenu.show();
     }
 
     //eventos de contacto simples, un toast para muestra

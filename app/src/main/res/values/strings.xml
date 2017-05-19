@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Petagram</string>
 
+    <!--Textos del menu de popup-->
+    <string name="menu_view">Ver Imágen</string>
+    <string name="menu_detail">Ver detalles imágen</string>
+
     <!-- Textos del card view de la mascota-->
     <string name="NombreMascota">Pulgas</string>
     <string name="LikesCount">4</string>
