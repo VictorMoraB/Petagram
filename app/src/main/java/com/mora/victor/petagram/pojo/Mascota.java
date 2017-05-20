@@ -1,4 +1,4 @@
-package com.mora.victor.petagram;
+package com.mora.victor.petagram.pojo;
 
 /**
  * Created by Victor on 14-May-17.

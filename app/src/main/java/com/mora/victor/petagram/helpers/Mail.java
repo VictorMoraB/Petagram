@@ -1,4 +1,4 @@
-package com.mora.victor.petagram; /**
+package com.mora.victor.petagram.helpers; /**
  * Created by Victor on 16-May-17.
  */
 

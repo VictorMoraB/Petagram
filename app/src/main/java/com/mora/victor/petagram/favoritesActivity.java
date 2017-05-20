@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mora.victor.petagram.adapters.MascotaAdaptador;
+import com.mora.victor.petagram.pojo.Mascota;
+
 import java.util.ArrayList;
 
 public class favoritesActivity extends AppCompatActivity implements View.OnClickListener{

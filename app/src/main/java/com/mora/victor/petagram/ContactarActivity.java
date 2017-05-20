@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mora.victor.petagram.helpers.Mail;
+
 import javax.mail.AuthenticationFailedException;
 import javax.mail.MessagingException;
 
