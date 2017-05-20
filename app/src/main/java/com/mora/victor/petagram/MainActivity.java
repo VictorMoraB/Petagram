@@ -2,6 +2,10 @@ package com.mora.victor.petagram;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +17,9 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.mora.victor.petagram.adapters.MascotaAdaptador;
+import com.mora.victor.petagram.adapters.PageAdapter;
+import com.mora.victor.petagram.fragments.MiMascotaFragment;
+import com.mora.victor.petagram.fragments.RecyclerMascotaFragment;
 import com.mora.victor.petagram.pojo.Mascota;
 
 import java.util.ArrayList;
@@ -20,9 +27,9 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Toolbar myActionbar;
-    private RecyclerView rvMascotas;
     private ImageView icEstrella;
-    private ArrayList<Mascota> mascotas;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,27 +40,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setSupportActionBar(myActionbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-
-        //obtener una referencia al rv de las mascotas
-        rvMascotas = (RecyclerView)findViewById(R.id.rvMascotas);
-
-        //crear una lista de mascotas para usar como ejemplo
-        mascotas = crearMascotas();
+        tabLayout = (TabLayout)findViewById(R.id.tabLayout);
+        viewPager = (ViewPager)findViewById(R.id.viewPager);
 
         //obtener una referencia al icono de navegar a favoritos y configurar el event listener
         icEstrella = (ImageView)findViewById(R.id.ic_star);
         icEstrella.setOnClickListener(this);
 
-        //crear un layout manager para el recycler view
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        setupViewPager();
 
-        //crear un adaptador con los contactos
-        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas, this);
-        rvMascotas.setLayoutManager(llm);
-        rvMascotas.setAdapter(adaptador);
+    }
 
+    private void setupViewPager(){
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(),agregarFragmentos()));
+        tabLayout.setupWithViewPager(viewPager);
+        //setup the tab icons
+    }
 
+    private ArrayList<Fragment> agregarFragmentos(){
+        ArrayList<Fragment> fragmentos = new ArrayList<>();
+        fragmentos.add(new RecyclerMascotaFragment());
+        fragmentos.add(new MiMascotaFragment());
+        return fragmentos;
     }
 
     //configurar el menu de la barra de acciones y los efectos de la seleccion del touch
@@ -97,42 +105,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //crear un intent para ir a la nueva actividad
         Intent intent = new Intent(this, bio_desarrolador.class);
         startActivity(intent);
-    }
-
-    private ArrayList<Mascota> crearMascotas(){
-        ArrayList<Mascota> mascotas = new ArrayList<Mascota>();
-
-        Mascota elefante = new Mascota("Dumbo", R.drawable.elephant, 1);
-        mascotas.add(elefante);
-
-        Mascota jirafa = new Mascota("Manchas", R.drawable.giraffe, 3);
-        mascotas.add(jirafa);
-
-        Mascota hipo = new Mascota("Hipo", R.drawable.hippo, 2);
-        mascotas.add(hipo);
-
-        Mascota mono = new Mascota("CariBlanca", R.drawable.monkey,4);
-        mascotas.add(mono);
-
-        Mascota panda = new Mascota("KungFu Master", R.drawable.panda, 9);
-        mascotas.add(panda);
-
-        Mascota perico = new Mascota("Metal Parrot", R.drawable.parrot, 15);
-        mascotas.add(perico);
-
-        Mascota pinguino = new Mascota("Pipo", R.drawable.penguin, 4);
-        mascotas.add(pinguino);
-
-        Mascota puerquito = new Mascota("Babe el valiente", R.drawable.pig, 19);
-        mascotas.add(puerquito);
-
-        Mascota conejo = new Mascota("Brinquitos", R.drawable.rabbit, 7);
-        mascotas.add(conejo);
-
-        Mascota python = new Mascota("Monty Python", R.drawable.snake, 798);
-        mascotas.add(python);
-
-        return mascotas;
     }
 
     @Override

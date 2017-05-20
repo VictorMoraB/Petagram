@@ -9,6 +9,7 @@
     android:id="@+id/miActionBar"
     android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    app:layout_scrollFlags="scroll|enterAlways"
     >
 
         <!--agregar icono de pata-->
