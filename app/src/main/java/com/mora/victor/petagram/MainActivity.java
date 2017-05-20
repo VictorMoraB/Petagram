@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(),agregarFragmentos()));
         tabLayout.setupWithViewPager(viewPager);
         //setup the tab icons
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_action_home);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_action_pet);
     }
 
     private ArrayList<Fragment> agregarFragmentos(){
