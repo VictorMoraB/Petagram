@@ -15,4 +15,11 @@
     <dimen name="icons_size">40dp</dimen>
 
     <dimen name="padding_contactar">4dp</dimen>
+
+    <dimen name="mi_mascota_image_perfil_size">200dp</dimen>
+    <dimen name="text_pet_name_size">35dp</dimen>
+    <!--dimensiones para la foto de la galeria-->
+    <dimen name="foto_card_size">120dp</dimen>
+    <dimen name="foto_size">100dp</dimen>
+
 </resources>

@@ -22,12 +22,14 @@
         </activity>
         <activity
             android:name=".favoritesActivity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" >
 
             <!-- soporte para versiones anteriores a 4.0 -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".MainActivity"
+                />
         </activity>
         <activity
             android:name=".bio_desarrolador"

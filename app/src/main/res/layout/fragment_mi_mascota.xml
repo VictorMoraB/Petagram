@@ -1,13 +1,40 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mora.victor.petagram.fragments.MiMascotaFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.mora.victor.petagram.fragments.MiMascotaFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/ivcPerfil"
+        android:layout_width="@dimen/mi_mascota_image_perfil_size"
+        android:layout_height="@dimen/mi_mascota_image_perfil_size"
+        android:src="@drawable/snake2"
+        app:civ_border_color="@color/cardview_dark_background"
+        app:civ_border_width="8dp"
+        app:civ_shadow="true"
+        app:civ_shadow_radius="10"
+        app:civ_shadow_color="@color/colorAccent"
+        android:layout_gravity="center_horizontal"
+        />
+
     <TextView
+        android:id="@+id/tvNombreMiMascota"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="@string/nombre_mascota_temp"
+        android:textSize="@dimen/textSize_titulo"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        />
 
-</FrameLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvFotos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>

@@ -57,8 +57,6 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
 
         holder.huesoDorado.setOnCreateContextMenuListener(this);
 
-
-
         //evento on click para dar like
         holder.huesoLike.setOnClickListener(new View.OnClickListener(){
 
