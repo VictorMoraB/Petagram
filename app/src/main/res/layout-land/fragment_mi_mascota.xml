@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.mora.victor.petagram.fragments.MiMascotaFragment"
+    android:orientation="vertical">
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/ivcPerfil"
+        android:layout_width="@dimen/mi_mascota_image_perfil_size_landscape"
+        android:layout_height="@dimen/mi_mascota_image_perfil_size_landscape"
+        android:src="@drawable/snake2"
+        app:civ_border_color="@color/cardview_dark_background"
+        app:civ_border_width="8dp"
+        app:civ_shadow="true"
+        app:civ_shadow_radius="10"
+        app:civ_shadow_color="@color/colorAccent"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <TextView
+        android:id="@+id/tvNombreMiMascota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/nombre_mascota_temp"
+        android:textSize="@dimen/textSize_titulo"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvFotos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>
