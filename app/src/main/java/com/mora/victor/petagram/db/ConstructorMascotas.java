@@ -29,4 +29,27 @@ public class ConstructorMascotas {
 
         return mascotas;
     }
+
+    public ArrayList<Mascota> obtenerMascotasFavoritas() {
+
+        ArrayList<Mascota> mascotas = new ArrayList<>();
+
+        Mascota python = new Mascota("Monty Python", R.drawable.snake, 999);
+        mascotas.add(python);
+
+        Mascota puerquito = new Mascota("Babe el valiente", R.drawable.pig, 19);
+        mascotas.add(puerquito);
+
+        Mascota perico = new Mascota("Metal Parrot", R.drawable.parrot, 15);
+        mascotas.add(perico);
+
+        Mascota panda = new Mascota("KungFu Master", R.drawable.panda, 9);
+        mascotas.add(panda);
+
+
+        Mascota conejo = new Mascota("Brinquitos", R.drawable.rabbit, 7);
+        mascotas.add(conejo);
+
+        return  mascotas;
+    }
 }

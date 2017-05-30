@@ -1,6 +1,9 @@
 package com.mora.victor.petagram;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mora.victor.petagram.adapters.MascotaAdaptador;
+import com.mora.victor.petagram.fragments.RecyclerMascotaFragment;
+import com.mora.victor.petagram.fragments.RecyclerMascotasFavoritas;
 import com.mora.victor.petagram.pojo.Mascota;
 
 import java.util.ArrayList;
@@ -18,8 +23,7 @@ import java.util.ArrayList;
 public class favoritesActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Toolbar myActionbar;
-    private RecyclerView rvMascotas;
-    private ArrayList<Mascota> mascotas;
+     private ArrayList<Mascota> mascotas;
     private TextView tituloActionBar;
 
     @Override
@@ -39,22 +43,19 @@ public class favoritesActivity extends AppCompatActivity implements View.OnClick
         ImageView estrella = (ImageView)myActionbar.findViewById(R.id.ic_star);
         ((ViewGroup) estrella.getParent()).removeView(estrella);
 
-        //obtener una referencia al rv de las mascotas
-        rvMascotas = (RecyclerView)findViewById(R.id.rvMascotasFavorites);
-
-        //crear una lista de mascotas para usar como ejemplo
-        mascotas = crearMascotas();
-
-        //crear un layout manager para el recycler view
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-
-        //crear un adaptador con los contactos
-        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas, this);
-        rvMascotas.setLayoutManager(llm);
-        rvMascotas.setAdapter(adaptador);
+        //insertar el fragmento recycler view de las mascotas favoritas
+        RecyclerMascotasFavoritas fragment = new RecyclerMascotasFavoritas();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.fragmentRecyclerFavoritas, fragment);
+        fragmentTransaction.commit();
 
 
+
+    }
+
+    private Fragment crearFragmentoFavoritos(){
+        return new RecyclerMascotaFragment();
     }
 
 
