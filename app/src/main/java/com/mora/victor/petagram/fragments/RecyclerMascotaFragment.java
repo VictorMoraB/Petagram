@@ -12,16 +12,21 @@ import android.view.ViewGroup;
 import com.mora.victor.petagram.R;
 import com.mora.victor.petagram.adapters.MascotaAdaptador;
 import com.mora.victor.petagram.pojo.Mascota;
+import com.mora.victor.petagram.presentador.IRecyclerMascotaFragmentPresenter;
+import com.mora.victor.petagram.presentador.RecyclerMascotaFragmentPresenter;
 
 import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RecyclerMascotaFragment extends Fragment {
+public class RecyclerMascotaFragment extends Fragment implements IRecyclerMascotaView {
 
     private RecyclerView rvMascotas;
     private ArrayList<Mascota> mascotas;
+
+    private IRecyclerMascotaFragmentPresenter presenter;
+
 
     public RecyclerMascotaFragment() {
         // Required empty public constructor
@@ -36,21 +41,36 @@ public class RecyclerMascotaFragment extends Fragment {
         //obtener una referencia al rv de las mascotas
         rvMascotas = (RecyclerView)v.findViewById(R.id.rvMascotas);
 
-        //crear una lista de mascotas para usar como ejemplo
-        mascotas = crearMascotas();
-
-        //crear un layout manager para el recycler view
-        LinearLayoutManager llm = new LinearLayoutManager(getContext());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-
-        //crear un adaptador con los contactos
-        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas, getActivity());
-        rvMascotas.setLayoutManager(llm);
-        rvMascotas.setAdapter(adaptador);
+        presenter = new RecyclerMascotaFragmentPresenter(this, getContext());
 
         return v;
     }
 
+
+    @Override
+    public void generarLinearLayout() {
+        //crear un layout para controlar la forma en que se mostraran las mascotas
+        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        rvMascotas.setLayoutManager(llm);
+
+    }
+
+    @Override
+    public MascotaAdaptador crearAdaptador(ArrayList<Mascota> mascotas) {
+        //crear un adaptador con los contactos
+        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas, getActivity());
+        return  adaptador;
+    }
+
+    @Override
+    public void inicializarAdaptadorRV(MascotaAdaptador adaptador) {
+        rvMascotas.setAdapter(adaptador);
+    }
+
+
+
+    /*
     private ArrayList<Mascota> crearMascotas(){
         ArrayList<Mascota> mascotas = new ArrayList<Mascota>();
 
@@ -86,6 +106,5 @@ public class RecyclerMascotaFragment extends Fragment {
 
         return mascotas;
     }
-
-
+*/
 }

@@ -8,6 +8,9 @@ import java.util.ArrayList;
 
 public class Mascota {
 
+    //identificador único de la mascota en la base de datos
+    private int id;
+
     private String Name;
     private int Image;
     private int LikesCount;
@@ -25,7 +28,7 @@ public class Mascota {
         crearFotosPerfilPrueba();
     }
 
-    //por ahora todas las fotos de la galeria seran las mismas, igual a la de perfril ademas
+    //por ahora todas las fotos de la galeria seran las mismas, igual a la de perfil ademas
 
     //agregar 12 fotos de perfil
     private void crearFotosPerfilPrueba(){
@@ -67,5 +70,13 @@ public class Mascota {
 
     public void setFotosGaleria(ArrayList<Foto> fotosGaleria) {
         this.fotosGaleria = fotosGaleria;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
