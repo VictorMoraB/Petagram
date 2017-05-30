@@ -61,6 +61,27 @@ public class ConstructorMascotas {
         db.insertarMascota(contentValues);
     }
 
+    public void darLikeMascota(Mascota mascota){
+
+        BaseDatos db = new BaseDatos(context);
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(ConstantesBaseDatos.TABLE_LIKES_ID_MASCOTA, mascota.getId());
+        db.darLikeMascota(contentValues);
+
+    }
+
+    public int obtenerLikesMascota(Mascota mascota){
+        int likes = 0;
+        BaseDatos db = new BaseDatos(context);
+        try{
+            likes = db.obtenerLikesMascota(mascota);
+        }finally {
+            db.close();
+        }
+
+        return likes;
+    }
+
     public ArrayList<Mascota> obtenerMascotasFavoritas() {
 
         BaseDatos db = new BaseDatos(context);

@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mora.victor.petagram.R;
+import com.mora.victor.petagram.db.ConstructorMascotas;
 import com.mora.victor.petagram.pojo.Mascota;
 
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
     }
 
     @Override
-    public void onBindViewHolder(MascotaViewHolder holder, final int position) {
+    public void onBindViewHolder(final MascotaViewHolder holder, final int position) {
         final Mascota mascota = mascotas.get(position);
         holder.nombreMascota.setText(mascota.getName());
         int likes = mascota.getLikesCount();
@@ -63,12 +64,17 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
             @Override
             public void onClick(View v) {
                 //incrementar los likes en 1
-                mascota.setLikesCount(mascota.getLikesCount()+1);
+                //mascota.setLikesCount(mascota.getLikesCount()+1);
+                ConstructorMascotas constructorMascotas = new ConstructorMascotas(actividad);
+                constructorMascotas.darLikeMascota(mascota);
+                int likes = constructorMascotas.obtenerLikesMascota(mascota);
+                holder.likesCount.setText(Integer.toString(likes));
+
                 //mostrar un mensaje de notificacion al usuario
                 Toast.makeText(actividad, "Diste like a " + mascota.getName() + "!",
                         Toast.LENGTH_SHORT).show();
 
-                notifyItemChanged(position);
+                //notifyItemChanged(position);
 
             }
         });

@@ -17,4 +17,10 @@ public final class ConstantesBaseDatos {
     public static final String TABLE_MASCOTAS_IMAGEN = "imagen";
     public static final String TABLE_MASCOTAS_LIKES_COUNT = "likes_count";
 
+
+    //constantes para la creacion de la tabla de likes de la mascota
+    public static final String TABLE_LIKES_MASCOTA = "mascota_likes";
+    public static final String TABLE_LIKES_ID = "id";
+    public static final String TABLE_LIKES_ID_MASCOTA = "id_mascota";
+
 }
